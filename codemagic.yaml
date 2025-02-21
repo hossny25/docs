@@ -1,3 +1,13 @@
-git add codemagic.yaml
-git commit -m 'Add first workflow'
-git push
+workflows:
+  version: 2.1
+  build_and_test:
+    name: Build and Test
+    scripts:
+      - name: Install dependencies
+        script: npm install
+      - name: Run tests
+        script: npm test
+    artifacts:
+      - build/*
+    environment:
+      NODE_ENV: test
